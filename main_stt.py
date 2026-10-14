@@ -10,6 +10,7 @@ import wave
 import time
 import requests
 
+
 # ===== 路徑已統一改成 ~/RPi4-1/ 底下 =====
 WHISPER_BIN = "/home/leslie/RPi4-1/whisper.cpp/build/bin/whisper-cli"
 WHISPER_MODEL = "/home/leslie/RPi4-1/whisper.cpp/models/ggml-base.bin"

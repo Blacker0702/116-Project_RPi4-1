@@ -157,7 +157,7 @@ def get_latest_uart_data():
     line = ser.readline()      # 下一行一定是完整的一包
 
     if not line.endswith(b'\n'):
-        print(">>> ⚠️ [UART] 未在時限內收到完整封包,請確認 RPi4-2 是否正常發射。")
+        print(">>> ⚠️ [UART] 未在時限內收到完整封包,請確認 RPi4-2 是否正常運作。")
         f_name = "RPi4-2_Error"
         f_value = -9999.9
         return f_name, f_value
@@ -218,12 +218,13 @@ try:
 
 
                 # 1. 執行錄音並取得 STT 文字結果
-                # recognized_text = record_and_transcribe()
+                recognized_text = record_and_transcribe()
+                
                 # recognized_text = "你看到了什麼？"
-                recognized_text = "我今天吃了塊蛋糕"
+                # recognized_text = "我今天吃了塊蛋糕"
+
                 print(f">>> {recognized_text}")
 
-                # 2. 如果有成功辨識出文字，才繼續往後執行
                 f_name, f_value = get_latest_uart_data()
                 upload_to_backend(recognized_text, f_name, f_value)
 
